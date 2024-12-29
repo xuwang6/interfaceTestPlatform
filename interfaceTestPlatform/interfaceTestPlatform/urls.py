@@ -15,12 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.template.defaulttags import url
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 from rest_framework import routers
 
-from Testproject.views import TestProjectView
+from Testproject.views import TestProjectView, TestEnvView, TestFiletView
 from users.views import UserLoginView
 
 router = routers.SimpleRouter()
@@ -33,4 +32,6 @@ urlpatterns = [
 ]
 
 router.register('api/testprojects', TestProjectView)
+router.register('api/testenvs', TestEnvView)
+router.register('api/testfiles', TestFiletView)
 urlpatterns += router.urls

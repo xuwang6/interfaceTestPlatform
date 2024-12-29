@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'TestTask',
     'users',
     # 注册jwt鉴权模块
-    'rest_framework_simplejwt'
+    'rest_framework_simplejwt',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -145,6 +146,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
     ),
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
 }
 
 # token配置
@@ -168,3 +172,6 @@ SIMPLE_JWT = {
 
 }
 # APPEND_SLASH = False
+
+# 配置文件存储路径
+MEDIA_ROOT = BASE_DIR / 'files'
